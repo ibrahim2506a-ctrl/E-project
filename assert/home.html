@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Load local styles after Bootstrap so they can override defaults -->
+    <link rel="stylesheet" href="stylee.css">
+    <link rel="stylesheet" href="../services.css">
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="navbar">
+            <div class="logo text-white">Tour </div>
+            <ul class="list d-flex mx-5 gap-4 text-white ">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Services</a></li>
+            </ul>
+        </div>
+        <div class="text scroll-anim from-left">
+            <h1 class="text-white">Let,s Enjoy Your</h1>
+            <h1 class="text-white">Trip In <span class="typed-words text-white"
+                    data-words='["San Francisco","Paris","Maui","London","New Zealand"]'><span class="text"></span><span
+                        class="cursor"></span></span></h1>
+
+        </div>
+
+        <div class="box scroll-anim from-bottom">
+            <img src="./hero-slider-4.jpg" alt="">
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+    <script src="../js/scroll-animate.js"></script>
+
+    <!-- Simple typed-words autoplay script -->
+    <script>
+        (function () {
+            function TypeRotator(el, words, typeSpeed, pause) {
+                this.el = el;
+                this.textEl = el.querySelector('.text');
+                this.cursor = el.querySelector('.cursor');
+                this.words = words;
+                this.typeSpeed = typeSpeed || 100;
+                this.pause = pause || 1400;
+                this.wordIndex = 0;
+                this.charIndex = 0;
+                this.typing = true;
+                this.run();
+            }
+            TypeRotator.prototype.run = function () {
+                var self = this;
+                var current = self.words[self.wordIndex];
+                if (self.typing) {
+                    self.charIndex++;
+                    self.textEl.textContent = current.slice(0, self.charIndex);
+                    if (self.charIndex === current.length) {
+                        self.typing = false;
+                        setTimeout(function () { self.run(); }, self.pause);
+                        return;
+                    }
+                    setTimeout(function () { self.run(); }, self.typeSpeed);
+                } else {
+                    self.charIndex--;
+                    self.textEl.textContent = current.slice(0, self.charIndex);
+                    if (self.charIndex === 0) {
+                        self.typing = true;
+                        self.wordIndex = (self.wordIndex + 1) % self.words.length;
+                        setTimeout(function () { self.run(); }, 350);
+                        return;
+                    }
+                    setTimeout(function () { self.run(); }, Math.max(40, self.typeSpeed / 2));
+                }
+            };
+
+            document.addEventListener('DOMContentLoaded', function () {
+                var els = document.querySelectorAll('.typed-words');
+                els.forEach(function (el) {
+                    var raw = el.getAttribute('data-words') || '[]';
+                    try { var words = JSON.parse(raw); } catch (e) { var words = [] }
+                    if (!words.length) return;
+                    new TypeRotator(el, words, 90, 1500);
+                });
+            });
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+/* home */
+.container-fluid {
+    height: 400px;
+    width: 100%;
+    border: 2px solid black;
+    /* margin-right: 100x; */
+    background-color: #6998AB;
+    /* opacity: 44%; */
+}
+
+.navbar {
+    height: 70px;
+    width: 100%;
+    background-color: #6998AB;
+}
+
+.list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 8px;
+    list-style: none;
+}
+
+/* Navbar list: make nav links smaller and ensure Bootstrap doesn't override */
+.navbar .list a {
+    font-size: 10px;
+    color: inherit;
+    text-decoration: none;
+    list-style: none;
+    ;
+    /* gap: 100px; */
+
+}
+
+.navbar .list a:hover {
+    text-decoration: underline;
+}
+
+/* Typed-words / typewriter effect */
+.typed-words {
+    display: inline-block;
+    margin-left: 8px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.typed-words .text {
+    display: inline-block;
+}
+
+.typed-words .cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.1em;
+    background: currentColor;
+    margin-left: 4px;
+    vertical-align: middle;
+    animation: blink 700ms steps(1) infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0
+    }
+}
+
+/* Underline for logo typed words */
+.logo .typed-words {
+    text-decoration: none;
+    /* use border for more control */
+    border-bottom: 2px solid currentColor;
+    padding-bottom: 3px;
+    display: inline-block;
+}
+
+.boxes {
+    height: 350px;
+    width: 220px;
+    border: 2px solid black;
+    position: relative;
+    bottom: 25%;
+    left: 59%;
+
+    /* background-size: 80%;
+    border-top-right-radius: 36%;
+    background-color: white;
+    border-top-left-radius: 36%;
+    border-bottom-right-radius: 36%;
+    border-bottom-left-radius: 36%;
+
+    border-radius-top: 36%; */
+
+
+
+    /* top: 0.0003%; */
+}
+
+.box {
+    height: 350px;
+    width: 220px;
+    background-color: white;
+    border-radius: 40%;
+    /* border-top-right-radius: 36%; */
+    /* border-top-left-radius: 36%;
+    border-bottom-right-radius: 36%;
+    bo  der-bottom-left-radius: 36%; */
+    position: relative;
+    bottom: 25%;
+    left: 59%;
+
+}
+
+.box img {
+    height: 85%;
+    width: 100%;
+     border-radius: 40%;
+    /* border-bottom-right-radius: 36%;
+    border-bottom-left-radius: 36%;
+    border-top-right-radius: 36%;
+    border-top-left-radius: 36%; */
+    overflow: hidden;
+
+
+
+}
